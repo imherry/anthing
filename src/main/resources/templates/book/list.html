@@ -1,18 +1,24 @@
-<!-- src/main/resources/templates/book/list.html -->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>测试页面</title>
+    <title>图书列表</title>
 </head>
 <body>
-<h1>图书列表页面</h1>
-<p>如果能看到这个，说明文件位置对了！</p>
-
-<h2>图书数量：<span th:text="${bookList.size()}">0</span></h2>
-
-<ul>
-    <li th:each="book : ${bookList}" th:text="${book.title}">书名</li>
-</ul>
+<h1>图书列表</h1>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>书名</th>
+        <th>作者</th>
+        <th>价格</th>
+    </tr>
+    <tr th:each="book : ${bookList}">
+        <td th:text="${book.id}">1</td>
+        <td th:text="${book.title}">Java编程思想</td>
+        <td th:text="${book.author}">Bruce Eckel</td>
+        <td th:text="${book.price}">89.0</td>
+    </tr>
+</table>
 </body>
 </html>

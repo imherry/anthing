@@ -16,10 +16,4 @@ private String author;
 private double price;
 private int stock;
 
-
-
-
-
-
-
     }

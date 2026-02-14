@@ -1,7 +1,7 @@
 package com.example.anything.controller;
 
 import com.example.anything.model.Book;
-import com.example.anything.servive.BoookService;
+import com.example.anything.servive.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,20 +14,16 @@ import java.util.List;
 @Controller
 @RequestMapping("/books")
 public class BookController {
-
-    @GetMapping("/test")
-    @ResponseBody  // 直接返回字符串，不找页面
-    public String test() {
-        return "项目运行成功！";
-    }
-
-
     @Autowired
-    private BoookService boookService;
+    private BookService bookService;
 
+//    @GetMapping("/test-page")
+//    public String testPage() {
+//        return "test";  // 对应 test.html
+//    }
     @GetMapping
-    public String hello(Model model) {
-        List<Book> books=boookService.findall();
+    public String getAllBooks(Model model) {
+        List<Book> books=bookService.findall();
         // 5. 把数据放进Model（数据背包）
         model.addAttribute("bookList", books);
         model.addAttribute("totalCount", books.size());
